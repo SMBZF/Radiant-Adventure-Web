@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radiant Adventure</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0b0f;
+      color: #ffffff;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #0f0f2b, #1a1a3d);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #64b5f6;
+    }
+    .section {
+      padding: 2rem 5%;
+      background-color: #121221;
+    }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #90caf9;
+    }
+    .mode-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .mode-box {
+      flex: 1 1 30%;
+      background-color: #1e1e2f;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(100, 181, 246, 0.2);
+    }
+    .mode-box p {
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+    }
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .image-gallery div {
+      flex: 1 1 30%;
+      text-align: center;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    .image-gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 8px;
+      margin: 2rem auto;
+      display: block;
+    }
+    .info-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    .info-panel img {
+      max-width: 45%;
+      border-radius: 10px;
+    }
+    .info-panel .text-box {
+      flex: 1 1 300px;
+      background-color: #1f1f30;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(144, 202, 249, 0.2);
+    }
+    ul {
+      line-height: 1.6;
+    }
+  </style>
+<header>
+    <h1>Radiant Adventure</h1>
+    <section class="image-switcher">
+        <img id="mainImage" src="images/slider/1.png" alt="Main Display" />
+        <div class="dots" id="dots">
+          <span data-index="0"></span>
+          <span data-index="1"></span>
+          <span data-index="2"></span>
+          <span data-index="3"></span>
+          <span data-index="4"></span>
+          <span data-index="5"></span>
+        </div>
+      </section>
+      
+      <style>
+      .image-switcher {
+        text-align: center;
+        margin: 2rem auto;
+        max-width: 960px;
+      }
+      .image-switcher img {
+        width: 100%;
+        max-height: 600px;
+        object-fit: contain;
+        border-radius: 10px;
+        background-color: #000;
+      }
+      .dots {
+        margin-top: 1rem;
+      }
+      .dots span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 6px;
+        background-color: #aaa;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .dots .active {
+        background-color: #64b5f6;
+      }
+      </style>
+      
+      <script>
+      const images = [
+        "images/slider/1.png",
+        "images/slider/2.png",
+        "images/slider/3.png",
+        "images/slider/4.png",
+        "images/slider/5.png",
+        "images/slider/6.png"
+      ];
+      const mainImage = document.getElementById('mainImage');
+      const dots = document.querySelectorAll('#dots span');
+      
+      function showImage(index) {
+        mainImage.src = images[index];
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.dataset.index);
+          showImage(index);
+        });
+      });
+      
+      showImage(0);
+      </script>
+      
+      
+      
+    <p>
+      In a post-apocalyptic world where signal towers have shut down,<br>
+      the player takes on the role of a lone survivor trying to restore global communication.
+    </p>
+    <p>
+      By collecting batteries and unlocking Radio, UV, and X-Ray modes,<br>
+      he tunes frequencies to reveal hidden clues and solve puzzles across three immersive scenes.
+    </p>
+    <p>
+      This serious game is designed to help young players understand electromagnetic waves<br>
+      and frequencies through interactive gameplay.
+    </p>
+  </header>
+  
+  
+
+  <section class="section">
+    <h2>About Me & Project Contribution</h2>
+    <p><strong>Name:</strong> Ziyi Wang<br>
+    <strong>Role:</strong> Technical Designer / Unity Developer</p>
+  
+    <p>
+      I am a passionate VR developer with a strong background in interactive systems, immersive design, and game logic implementation. In this project, I was responsible for implementing all core gameplay systems and UI interactions using Unity and C#.
+    </p>
+  
+    <p><strong>My main contributions included:</strong></p>
+    <ul>
+      <li>Electromagnetic frequency mode switching (Radio, UV, X-Ray)</li>
+      <li>Battery pickup and activation logic</li>
+      <li>Slider UI controlled by joystick for frequency tuning</li>
+      <li>Electromagnetic wave detection system</li>
+      <li>Air wall unlocking & player progression logic</li>
+      <li>All in-game UI panels and interaction scripts</li>
+      <li>Shader trigger controls and visual feedback integration</li>
+    </ul>
+  
+    <p>You can view the full project source code and development logs at the GitHub repository:</p>
+    <p>
+      <a href="https://github.com/SMBZF/Microwave-Adventure" target="_blank" style="color: #64b5f6; font-weight: bold;">
+        🔗 GitHub: Microwave-Adventure
+      </a>
+    </p>
+  </section>
+  
+
+  <section class="section">
+    <h2>Radio Mode & UV Mode & X-Ray Mode</h2>
+    <div class="mode-boxes">
+      <div class="mode-box">
+        <p><strong>Radio Mode:</strong><br>
+        Used for navigation, players rely on the radio frequency band to receive guidance toward mission objectives, helping locate targets in the virtual environment.</p>
+      </div>
+      <div class="mode-box">
+        <p><strong>UV Mode:</strong><br>
+        Players can see content normally invisible to the naked eye, such as hidden symbols, path hints, or special markings for puzzle-solving, achieved through shader-based UV scanning effects.</p>
+      </div>
+      <div class="mode-box">
+        <p><strong>X-Ray Mode:</strong><br>
+        Allows players to see through objects to reveal internal structures or hidden items using shader effects, with a time limit to enhance gameplay challenge.</p>
+      </div>
+    </div>
+
+    <div class="image-gallery">
+      <div>
+        <img src="images/radio_signal.png" alt="Radio Signal Screenshot" />
+        <p>Radio Mode</p>
+      </div>
+      <div>
+        <img src="images/uv_success.png" alt="UV Connection Screenshot" />
+        <p>UV Mode</p>
+      </div>
+      <div>
+        <img src="images/xray_view.png" alt="X-Ray Mode Screenshot" />
+        <p>X-Ray Mode</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Battery Activation & Electromagnetic Unlocking</h2>
+    <p>
+      Players must search for electromagnetic batteries hidden in the scene. Once found, they can pick them up and insert them into their gauntlet (left hand). This action activates a specific electromagnetic mode.
+    </p>
+    <p>
+      After insertion, the battery glows once the player tunes the correct frequency using the joystick. This unlocks powerful vision modes such as Radio, UV, or X-Ray, allowing the player to proceed with puzzle-solving.
+    </p>
+  
+    <div class="image-gallery">
+      <div>
+        <img src="images/battery_search.png" alt="Searching for battery" />
+        <p>Searching for a battery</p>
+      </div>
+      <div>
+        <img src="images/battery_pickup.png" alt="Picking up the battery" />
+        <p>Picking up the battery</p>
+      </div>
+      <div>
+        <img src="images/battery_inserted.png" alt="Battery inserted in gauntlet" />
+        <p>Battery inserted & activated</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2>Electromagnetic Frequency System</h2>
+  
+    <!-- 第一层：调频逻辑（图左文右） -->
+    <div class="info-panel">
+      <img src="images/radio_connection.png" alt="Radio Frequency Tuning UI" />
+      <div class="text-box">
+        <p>
+          After collecting a battery, the player can open the frequency tuner interface.
+          By rotating the joystick, he aligns the slider with the correct band range—Radio, UV, or X-Ray.
+          Once tuned successfully, the battery emits a glow and the corresponding mode becomes active,
+          unlocking new visual abilities for puzzle-solving.
+        </p>
+        <p>
+          Each mode changes the player's view, revealing hidden paths, symbols, or internal structures
+          depending on the selected wave type.
+        </p>
+      </div>
+    </div>
+  
+    <!-- 第二层：图鉴说明（文左图右） -->
+    <div class="info-panel">
+      <div class="text-box">
+        <p>
+          This panel presents an in-game electromagnetic wave index designed to educate and assist the player.
+          Each entry explains the properties and frequency range of a specific wave type—Radio, UV, or X-Ray—using simple visual diagrams.
+        </p>
+        <p>
+          Once the player collects a corresponding battery, the related index entry becomes unlocked.
+          Players can open the index to review scientific information or confirm the required frequency for activation.
+        </p>
+        <p>
+          This UI serves both as an educational feature and a functional reminder for gameplay.
+        </p>
+      </div>
+      <img src="images/em_index_ui.png" alt="Electromagnetic Index UI" />
+    </div>
+  </section>
+  
+
+  <!-- <section class="section">
+    <h2>Group Role</h2>
+    <p>I was responsible for developing the interaction systems in Unity, implementing logic for electromagnetic modes, user feedback (UI, sound, vibration), and guiding systems.</p>
+  </section> -->
+
+  <section class="section">
+    <h2>Project Overview & Player Journey</h2>
+    <p>
+      This VR experience is centered around electromagnetic wave interaction, where gameplay is driven by tuning, unlocking, and decoding through frequency-based mechanics.
+      Instead of providing direct instructions, the environment encourages players to observe, experiment, and learn by engaging with responsive systems.
+    </p>
+    <p>
+      As the player progresses, he explores three distinct scenes with increasing complexity. In each scene, he must locate and insert batteries to unlock specialized vision modes,
+      then use joystick-controlled sliders to match frequencies and activate hidden paths, visual effects, or audio cues.
+    </p>
+    <p>
+      The journey is nonlinear and immersive—players receive feedback through visual glow, UI panels, and environmental changes, allowing them to solve challenges with logic and attention to electromagnetic behavior.
+    </p>
+  </section>
+  
+
+  <section class="section">
+    <h2>Development Journey</h2>
+    <p>This project was developed over several weeks through iterations and testing. Here's how the journey unfolded:</p>
+    <ul>
+      <li><strong>Week 1:</strong> Brainstorming concept + choosing electromagnetic wave theme</li>
+      <li><strong>Week 2:</strong> Built basic locomotion, interaction & XR input</li>
+      <li><strong>Week 3:</strong> UI system and slider tuning prototype</li>
+      <li><strong>Week 4:</strong> Connected frequency logic with battery system</li>
+      <li><strong>Week 5:</strong> Shader integration: UV/X-ray effects, audio feedback</li>
+      <li><strong>Week 6:</strong> Polish & playtest, created UI panel for guidance</li>
+    </ul>
+  </section>
+  
+
+  <!-- <section class="section">
+    <h2>Key Contributions</h2>
+    <ul>
+      <li><strong>Code:</strong> Battery system, slider UI, mode unlocking logic</li>
+      <li><strong>UI:</strong> Frequency panel, mode cards, joystick hints</li>
+      <li><strong>Audio:</strong> Positional audio feedback system</li>
+      <li><strong>Shader:</strong> UV/X-ray effect triggering by tuning</li>
+    </ul>
+  </section> -->
+
+  <section class="section">
+    <h2>Additional Features</h2>
+    <p>
+      In addition to the core gameplay systems, I implemented several extended features to enrich immersion and interactivity:
+    </p>
+    <ul>
+      <li>
+        <strong>Halo Sequence Guidance:</strong> When players enter specific areas, a glowing halo appears to indicate the next interaction point, enhancing spatial awareness and task flow.</li>
+      <li>
+        <strong>Electromagnetic Shader Feedback:</strong> Upon successful frequency tuning, shader effects visually reveal hidden clues or objects (e.g., UV paths, X-ray internals), providing real-time feedback and encouraging exploration.</li>
+      <li>
+        <strong>Interactive Storytelling:</strong> Certain objects in the environment trigger voice lines or story fragments, guiding players through the narrative without breaking immersion.</li>
+      <li>
+        <strong>Battery Index UI Unlocking:</strong> Once a battery is collected, the corresponding frequency entry is unlocked in the index UI, serving both as an educational guide and in-game reference.</li>
+      <li>
+        <strong>Joystick-Based Slider Control:</strong> Frequency tuning is mapped to joystick motion instead of direct button input, simulating analog radio behavior and enhancing VR realism.</li>
+      <li>
+        <strong>3D Positional Audio for Navigation (Unused):</strong> I implemented a spatial sound system to help guide players toward objectives through audio cues. However, during VR testing, it proved too difficult to accurately identify direction in a fully 3D environment, so it was ultimately not used in the final build.</li>
+      <li>
+        <strong>Climbing Mechanic (Unused):</strong> A basic climbing interaction was implemented and tested successfully. Due to time constraints and level design limitations, this mechanic was not included in the final scenes.</li>
+    </ul>
+    <p>
+      These features reflect both applied and exploratory work toward improving immersion, feedback clarity, and scientific relevance in a VR learning environment.
+    </p>
+  </section>
+  
+  
+
+  <section class="section">
+    <h2>Reflection</h2>
+    <p>
+      I believe I successfully achieved — and even exceeded — the original goals of this project by creating a fully immersive system that blends logic, environmental feedback, and intuitive VR interaction. What I’m most proud of is that all major vision-based mechanics, battery systems, and frequency-based puzzle flows are working cohesively.
+    </p>
+    <p>
+      The most challenging part of development was designing and maintaining the long logic chains required to connect each interactive component. Since many puzzles and triggers are interdependent, writing scripts that properly tracked unlock states became increasingly complex. Early in the project, I didn’t account for every mechanic during the design phase, which later forced me to go back and add multiple `bool` flags across various scripts. As the gameplay structure expanded, these dependencies grew more fragile — changing one trigger often meant updating a dozen others to keep the logic consistent.
+    </p>
+    <p>
+      Although I always knew how to fix issues, the effort required to safely modify interconnected systems taught me a valuable lesson: careful system planning during the design phase is essential. Retrofitting logic into a complex system mid-development makes scaling and debugging significantly harder.
+    </p>
+    <p>
+      Despite these obstacles, I’m satisfied with the final outcome. All major features function as intended, and in some cases, the implementation even surpassed my original expectations — especially in terms of user feedback and educational clarity.
+    </p>
+  </section>
+  
+
+  <!-- <section class="section">
+    <h2>Project Source Code</h2>
+    <p>You can view the full project source code and development logs at the GitHub repository:</p>
+    <p><a href="https://github.com/SMBZF/Microwave-Adventure" target="_blank" style="color: #64b5f6; font-weight: bold;">🔗 GitHub: Microwave-Adventure</a></p>
+  </section> -->
+  
+  <iframe src="https://www.youtube.com/embed/vQMHfzgTx7M" allowfullscreen></iframe>
+</body>
+</html>
